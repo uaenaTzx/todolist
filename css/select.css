@@ -1,0 +1,31 @@
+.selectBox{
+    width: 90px;
+}
+.select{
+    width: 90px;
+    background-color: #ffffff;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: 10px;
+}
+
+.selectOption{
+    background-color: #666666;
+    width: 80px;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    display: none;
+}
+.selectOption li{
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+.selectOption li:hover{
+    background-color: #484848
+}

@@ -1,0 +1,384 @@
+:root {
+    --shadow-color: rgb(114, 114, 114, 0.5);
+    --wrap-shadow1: #f5f9fd;
+    --wrap-shadow2: #d8dbe5;
+    --wrap-bg: #e2e6eb;
+    --inner-shadow1: #d9dbe6;
+    --inner-shadow2: #f5f9fd;
+    --txt: rgb(103, 103, 103);
+}
+
+.todolist-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.808);
+    box-shadow: 3px 3px 3px 3px var(--shadow-color);
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    height: 80px;
+}
+
+.header-title {
+    color: aliceblue;
+    font-size: 50px;
+}
+
+
+
+.header-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.header-input input {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.header-input .submit,
+.header-input .input-more,
+.header-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    border: solid gray 0.5px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: black;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.header-input .submit:hover,
+.header-input .input-more:hover,
+.header-login:hover {
+    background-color: rgb(139, 139, 139);
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+}
+
+.box {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.catalogue {
+    width: 300px;
+    height: 480px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px var(--shadow-color);
+    background-color: #edf1f4;
+}
+
+.catalogue>* {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 0 15px;
+    width: 250px;
+    height: 40px;
+    background-color: var(--wrap-bg);
+    border-radius: 5px;
+    box-shadow: -3px -3px 3px var(--wrap-shadow1),
+        3px 3px 3px var(--wrap-shadow2);
+    color: var(--txt);
+    transition: all 0.3s;
+}
+
+.catalogue>*:hover {
+    box-shadow: -6px -6px 6px var(--wrap-shadow1),
+        6px 6px 6px var(--wrap-shadow2);
+}
+
+.detail {
+    width: 800px;
+    height: 480px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px var(--shadow-color);
+    background-color: var(--wrap-bg);
+}
+
+.detail>* {
+    margin: 10px;
+
+}
+
+.detail .title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    height: 40px;
+}
+
+.detail .time {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.detail .time>* {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 15px;
+    margin: 0 10px 0 0;
+    width: 150px;
+    height: 40px;
+    background-color: var(--wrap-bg);
+    border-radius: 5px;
+    box-shadow: -3px -3px 3px var(--wrap-shadow1),
+        3px 3px 3px var(--wrap-shadow2);
+    color: var(--txt);
+    transition: all 0.3s;
+}
+
+.detail .time>*:hover {
+    box-shadow: -6px -6px 6px var(--wrap-shadow1),
+        6px 6px 6px var(--wrap-shadow2);
+}
+
+.detail .content {
+    display: flex;
+    justify-content: start;
+    height: 280px;
+}
+
+.detail .action {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 60px;
+}
+
+.detail .action>* {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.detail .action>*:hover {
+    border-radius: 35%;
+}
+
+.action .changeTime {
+    background-color: rgb(255, 221, 0, 0.8);
+}
+
+.action .done {
+    background-color: rgb(0, 98, 255, 0.8);
+}
+
+.action .changeContent {
+    background-color: rgb(47, 255, 0, 0.8);
+}
+
+
+/* 弹窗 (background) */
+.modal {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    background-color: rgba(237, 241, 244, 0.4);
+    /* opacity: 0.4; */
+}
+
+/* 弹窗内容 */
+.modal-content {
+    position: relative;
+    background-color: #edf1f4;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* 添加动画 */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 50%;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 50%;
+        opacity: 1
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    color: #000;
+    font-size: 40px;
+    height: 50px;
+}
+
+/* 关闭按钮 */
+.modal-header .close {
+    position: absolute;
+    right: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-header.close:hover,
+.modal-header.close:focus {
+    /* color: rgb(255, 255, 255); */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-modal-body {
+    height: 350px;
+}
+
+.login-modal-body>* {
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 430px;
+}
+
+.login-modal-body>* span {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.login-modal-body>* input {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.login-modal-body .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    border: solid gray 0.5px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: black;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+
+.login-modal-body .login:hover {
+    background-color: rgb(139, 139, 139);
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+}
+
+.submit-modal-body {
+    height: 350px;
+}
+
+.submit-modal-body>* {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 430px;
+}
+
+.submit-modal-body>* span {
+    font-size: 20px;
+}
+
+.submit-modal-body>* textarea {
+    width: 320px;
+    height: 150px;
+    border-radius: 10px;
+    padding:5px 0 0 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.submit-modal-body>* input[type="text"] {
+    margin-top: 2px;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    padding-left: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.submit-modal-body>* input[type="checkbox"] {
+    margin: 8px -25px 0 0;
+}
+
+.submit-modal-body .submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    border: solid gray 0.5px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: black;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+
+.submit-modal-body .submit:hover {
+    background-color: rgb(139, 139, 139);
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+}
