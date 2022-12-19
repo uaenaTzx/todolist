@@ -17,10 +17,12 @@
 
  //获取任务详细信息
  function getTaskDetail(value) {
-     let taskPart = taskDetail.getElementsByClassName("detail-box")
-     //获取标题
-     console.log(123)
-     // taskPart[0].innerText = value.getElementsByTagName("span")[0].innerText
+     let taskPart = Array.from(taskDetail.getElementsByClassName("detail-box"))
+
+     taskPart.forEach((item, index) => {
+         item.innerText = value.getElementsByTagName("span")[index].innerText
+     })
+
  }
 
  // 更多弹窗
@@ -46,6 +48,12 @@
      }
      submitTitle.innerText = title.value
      modal.style.display = "block";
+
+     //获取当前时间
+     document.getElementsByName('timeSelect').forEach((item, index) => {
+         item.value = index < 2 ? getCurrentTime()[index] : 0
+     })
+
  }
 
  // 点击 <span> (x), 关闭弹窗
@@ -68,8 +76,18 @@
  }
  //登录
  loginIn.onclick = function () {
-     modal.style.display = "none";
+     var userName = document.getElementsByClassName("userNameInput")[0]
+     var password = document.getElementsByClassName("passwordInput")[0]
+     if (userName.value && password.value) {
+         alert("登陆成功！")
+         localStorage.setItem('token', 'HfvqetfeeqvwetwvXUQHqvtQUwqvcqweHD3qcwt2qvtqv1XGDvqwetvqtH9Xqwcqetv212EX')
+         modal.style.display = "none";
+     } else {
+         if (!userName.value || !password.value) userName.value = "请输入你的用户名或密码！"
+     }
+
  }
+
  //提交
  SubmitIn.onclick = function () {
      //获取表单数据
@@ -101,14 +119,23 @@
      //遍历div，绑定点击事件
      //获取任务数组
      let task = [...taskCatalogue.getElementsByTagName("div")]
-     task.forEach(function (value) {
-         //绑定获取任务详细信息方法
-        //  $(task).on('click', value, function () {
-        //      value.onclick = getTaskDetail()
-        //      console.log("onclick" in value)
-        //  })
+
+     task.forEach((item, index) => {
+         $(item).on('click', () => {
+             getTaskDetail(item)
+         })
      })
-     console.log("onclick" in task[0])
+
      //关闭弹窗
      modal.style.display = "none";
+ }
+
+
+ function getCurrentTime() {
+     //获取当前时间并打印
+     var yy = new Date().getFullYear();
+     var mm = new Date().getMonth() + 1;
+     var dd = new Date().getDate();
+
+     return [mm, dd]
  }

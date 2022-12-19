@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Todolist</title>
 	<link rel="stylesheet" href="css/Todolist.css">
+	<link rel="stylesheet" href="css/normalize.css">
 	<style>
 		body {
 			background-color: rgb(185, 185, 185);
@@ -43,13 +44,11 @@
 
 		<div id="task-detail" class="detail">
 			<div class="title detail-box">
-				<span>睡觉</span>
+				睡觉
 			</div>
-			<div class="time detail-box">
-				<div>10.9 18:00</div>
-				<div>10.9 18:00</div>
-				<div>10.9 18:00</div>
-			</div>
+			<span class="time detail-box">
+				10.9 18:00
+			</span>
 			<div class="content detail-box">回家睡觉</div>
 			<div class="action">
 				<div class="changeTime">
@@ -155,13 +154,13 @@
 					<span>
 						用户名:
 					</span>
-					<input type="text" placeholder="请输入用户名">
+					<input  class="userNameInput" type="text" placeholder="请输入用户名">
 				</div>
 				<div class="password">
 					<span>
 						密码:
 					</span>
-					<input type="password" placeholder="请输入密码">
+					<input  class="passwordInput" type="password" placeholder="请输入密码">
 				</div>
 				<div id="Login" class="login">Login</div>
 			</div>
@@ -213,9 +212,12 @@
 		<!-- 弹窗内容 -->
 		<div class="modal-content">
 			<div class="modal-header">
+				<span>查看更多</span>
 				<span class="close">&times;</span>
 			</div>
-			<div class="modal-body">
+			<div class="more-modal-body">
+				<span>my resume</span>
+				<span><a href="./resume.html">我的简历</a></span>
 			</div>
 			<div class="modal-footer">
 			</div>
@@ -224,6 +226,7 @@
 
 
 	<script src="js/Todolist.js"></script>
+	<script src="js/jquery.js"></script>
 </body>
 
 </html>

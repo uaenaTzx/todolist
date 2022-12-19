@@ -71,7 +71,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 
 .catalogue {
@@ -109,6 +109,7 @@
     border-radius: 10px;
     box-shadow: 3px 3px 3px 3px var(--shadow-color);
     background-color: var(--wrap-bg);
+    padding: 0 20px;
 }
 
 .detail>* {
@@ -123,13 +124,13 @@
     height: 40px;
 }
 
-.detail .time {
+.detail span {
     display: flex;
     align-items: center;
     justify-content: start;
 }
 
-.detail .time>* {
+.detail span {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -145,7 +146,7 @@
     transition: all 0.3s;
 }
 
-.detail .time>*:hover {
+.detail span:hover {
     box-shadow: -6px -6px 6px var(--wrap-shadow1),
         6px 6px 6px var(--wrap-shadow2);
 }
@@ -340,7 +341,7 @@
     width: 320px;
     height: 150px;
     border-radius: 10px;
-    padding:5px 0 0 15px;
+    padding: 5px 0 0 15px;
     font-size: 20px;
     border: none;
     outline: none;
@@ -381,4 +382,19 @@
     background-color: rgb(139, 139, 139);
     color: rgb(255, 255, 255);
     font-size: 22px;
+}
+
+.more-modal-body {
+    height: 350px;
+}
+
+.more-modal-body span {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    /* border:solid */
+}
+
+.more-modal-body span {
+    font-size: 30px;
 }
